@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PresentacionMAUI.MainPage"
+             BackgroundColor="Black">
+    <Grid>
+       
+        
+        <!-- Fondo degradado -->
+        <Rectangle>
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0"
+                                     EndPoint="1,1">
+                    <GradientStop Color="#1e3a5f"
+                                  Offset="0" />
+                    <GradientStop Color="#2d5a87"
+                                  Offset="0.5" />
+                    <GradientStop Color="#1e3a5f"
+                                  Offset="1" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Image Source="fondo.png"
+               Aspect="AspectFill" />
+        <!-- Contenido principal -->
+        <ScrollView>
+            <StackLayout Padding="30"
+                         Spacing="25"
+                         VerticalOptions="CenterAndExpand">
+                <!-- Foto de perfil -->
+                <Frame BackgroundColor="Transparent"
+                       CornerRadius="100"
+                       Padding="5"
+                       HasShadow="True"
+                       HorizontalOptions="Center"
+                       BorderColor="Transparent">
+                    <Image x:Name="ProfileImage"
+                           Source="logo.png"
+                           Aspect="AspectFill"
+                           HeightRequest="120"
+                           WidthRequest="120">
+                        <Image.Clip>
+                            <EllipseGeometry Center="60,60"
+                                             RadiusX="60"
+                                             RadiusY="60" />
+                        </Image.Clip>
+                    </Image>
+                </Frame>
+                <!-- Información personal -->
+                <StackLayout Spacing="5"
+                             HorizontalOptions="Center">
+                    <Label x:Name="NameLabel"
+                           Text="Consultoría Integral SC"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center" />
+                    <Label x:Name="PositionLabel"
+                           Text="MANAGER"
+                           FontSize="16"
+                           TextColor="#87CEEB"
+                           HorizontalOptions="Center"
+                           Margin="0,0,0,10" />
+                </StackLayout>
+                <!-- Botones de acción -->
+                <StackLayout Spacing="15">
+                    <!-- Botón Teléfono -->
+                    <Button x:Name="PhoneButton"
+                            Text="Hablemos por teléfono"
+                            BackgroundColor="#4CAF50"
+                            TextColor="White"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            CornerRadius="25"
+                            HeightRequest="50"
+                            Clicked="OnPhoneClicked" />
+                    <!-- Botón WhatsApp -->
+                    <Button x:Name="WhatsAppButton"
+                            Text="Hablemos por WhatsApp"
+                            BackgroundColor="#25D366"
+                            TextColor="White"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            CornerRadius="25"
+                            HeightRequest="50"
+                            Clicked="OnWhatsAppClicked" />
+                    <!-- Botón Visítanos -->
+                    <Button x:Name="VisitButton"
+                            Text="Visítanos"
+                            BackgroundColor="#2196F3"
+                            TextColor="White"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            CornerRadius="25"
+                            HeightRequest="50"
+                            Clicked="OnVisitClicked" />
+                </StackLayout>
+                <!-- Redes sociales -->
+                <StackLayout Spacing="10">
+                    <Label Text="Síguenos en nuestras redes sociales"
+                           TextColor="White"
+                           FontSize="14"
+                           HorizontalOptions="Center"
+                           Margin="0,10,0,0" />
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Center"
+                                 Spacing="20">
+                        <Frame CornerRadius="25"
+                               BackgroundColor="Transparent"
+                               BorderColor="Transparent"
+                               Padding="0"
+                               HeightRequest="50"
+                               WidthRequest="50"
+                               HasShadow="False">
+                            <Image Source="facebook.png"
+                                   HeightRequest="50"
+                                   WidthRequest="50">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFacebookClicked" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Frame>
+                        <Frame CornerRadius="25"
+                               BackgroundColor="Transparent"
+                               BorderColor="Transparent"
+                               Padding="0"
+                               HeightRequest="50"
+                               WidthRequest="50"
+                               HasShadow="False">
+                            <Image Source="instagram.png"
+                                   HeightRequest="50"
+                                   WidthRequest="50">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnInstagramClicked" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+                <Frame BackgroundColor="Transparent"
+                       BorderColor="Transparent"
+                       CornerRadius="15"
+                       Padding="15"
+                       HorizontalOptions="Center"
+                       Margin="0,20,0,0">
+                    <Image x:Name="QRImage"
+                           Source="qr_placeholder.png"
+                           HeightRequest="150"
+                           WidthRequest="150">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnQRImageTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Label Text="Escanea el QR para conocer nuestra web"
+                       TextColor="#87CEEB"
+                       FontSize="12"
+                       HorizontalOptions="Center"
+                       Margin="0,5,0,0" />
+                <!-- Botón compartir -->
+                <Button x:Name="ShareButton"
+                        Text="Compartir tarjeta"
+                        BackgroundColor="#FF6B35"
+                        TextColor="White"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        CornerRadius="25"
+                        HeightRequest="50"
+                        Margin="0,10,0,10"
+                        Clicked="OnShareClicked" />
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
